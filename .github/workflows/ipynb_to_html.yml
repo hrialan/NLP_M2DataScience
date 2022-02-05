@@ -12,8 +12,7 @@ jobs:
 
       - name: Convert notebook to HTML 
         run: |
-          sudo apt-get install pandoc
-          sudo apt-get install texlive-xetex texlive-fonts-recommended texlive-plain-generic
+          sudo apt-get install pandoc texlive-xetex texlive-fonts-recommended texlive-plain-generic
           pip install notebook
           pip install nbconvert
           jupyter nbconvert --to pdf research_paper_analysis.ipynb
