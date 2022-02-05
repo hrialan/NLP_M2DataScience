@@ -12,11 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run a multi-line script
+      - name: Convert notebook to HTML 
         run: |
-          echo python --version
+          pip install notebook
           pip install nbconvert
           jupyter nbconvert --to html research_paper_analysis.ipynb
+          
       - uses: actions/upload-artifact@v2
         with:
           name: research_paper_analysis
