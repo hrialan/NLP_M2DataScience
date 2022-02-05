@@ -17,3 +17,7 @@ jobs:
           echo python --version
           pip install nbconvert
           jupyter nbconvert --to html research_paper_analysis.ipynb
+      - uses: actions/upload-artifact@v2
+        with:
+          name: research_paper_analysis
+          path: research_paper_analysis.html
