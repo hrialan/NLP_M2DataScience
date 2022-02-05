@@ -14,9 +14,10 @@ jobs:
 
       - name: Convert notebook to HTML 
         run: |
+          sudo apt-get install pandoc
           pip install notebook
           pip install nbconvert
-          jupyter nbconvert --to html research_paper_analysis.ipynb
+          jupyter nbconvert --to pdf research_paper_analysis.ipynb
           
       - uses: actions/upload-artifact@v2
         with:
