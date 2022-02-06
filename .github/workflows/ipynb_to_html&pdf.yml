@@ -10,7 +10,7 @@ jobs:
     env:
       ipynb_file_dir  : .
       ipynb_file_name : research_paper_analysis
-      artifact_name   : test
+      artifact_name   : Research paper notebook
       
     steps:
       - uses: actions/checkout@v2
