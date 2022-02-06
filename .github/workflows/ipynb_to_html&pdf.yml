@@ -8,7 +8,10 @@ jobs:
   nbconvert:
     runs-on: ubuntu-latest
     env:
-      ipynb_file_path: research_paper_analysis
+      ipynb_file_dir  : .
+      ipynb_file_name : research_paper_analysis
+      artifact_name   : test
+      
     steps:
       - uses: actions/checkout@v2
 
@@ -17,15 +20,16 @@ jobs:
           sudo apt-get install pandoc texlive-xetex texlive-fonts-recommended texlive-plain-generic
           pip install notebook
           pip install nbconvert
-          jupyter nbconvert --to pdf ${ipynb_file_path}.ipynb
-          jupyter nbconvert --to html ${ipynb_file_path}.ipynb
+          cd ${ipynb_file_dir}
+          jupyter nbconvert --to pdf ${ipynb_file_name}.ipynb
+          jupyter nbconvert --to html ${ipynb_file_name}.ipynb
           
       - uses: actions/upload-artifact@v2
         with:
-          name: research_paper_analysis (PDF)
-          path: research_paper_analysis.pdf
+          name: ${artifact_name} (PDF)
+          path: ${ipynb_file_name}.pdf
           
       - uses: actions/upload-artifact@v2
         with:
-          name: research_paper_analysis (HTML)
-          path: research_paper_analysis.html
+          name: ${artifact_name} (HTML)
+          path: ${ipynb_file_name}.html
