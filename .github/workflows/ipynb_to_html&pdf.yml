@@ -26,10 +26,10 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: ${artifact_name} (PDF)
-          path: ${ipynb_file_name}.pdf
+          name: ${{ env.artifact_name }} (PDF)
+          path: ${{ env.ipynb_file_name }}.pdf
           
       - uses: actions/upload-artifact@v2
         with:
-          name: ${artifact_name} (HTML)
-          path: ${ipynb_file_name}.html
+          name: ${{ env.artifact_name }} (HTML)
+          path: ${{ env.ipynb_file_name }}.html
