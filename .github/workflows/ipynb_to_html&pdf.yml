@@ -8,7 +8,7 @@ jobs:
   nbconvert:
     runs-on: ubuntu-latest
     env:
-      ipynb_file_path: research_paper_analysis.ipynb
+      ipynb_file_path: research_paper_analysis
     steps:
       - uses: actions/checkout@v2
 
@@ -17,8 +17,8 @@ jobs:
           sudo apt-get install pandoc texlive-xetex texlive-fonts-recommended texlive-plain-generic
           pip install notebook
           pip install nbconvert
-          jupyter nbconvert --to pdf $ipynb_file_path
-          jupyter nbconvert --to html $ipynb_file_path
+          jupyter nbconvert --to pdf ${ipynb_file_path}.ipynb
+          jupyter nbconvert --to html ${ipynb_file_path}.ipynb
           
       - uses: actions/upload-artifact@v2
         with:
