@@ -1,4 +1,4 @@
-name: Notebook to HTML
+name: Jupyter notebook to HTML
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Convert notebook to HTML 
+      - name: Convert notebook to other format 
         run: |
           sudo apt-get install pandoc texlive-xetex texlive-fonts-recommended texlive-plain-generic
           pip install notebook
@@ -19,5 +19,5 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: research_paper_analysis
-          path: research_paper_analysis.html
+          name: research_paper_analysis (PDF)
+          path: research_paper_analysis.pdf
